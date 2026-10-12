@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Alex & Taylor</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#FDFBF7', // Warm ivory background
+                            dark: '#2C3531',  // Soft charcoal for text
+                            accent: '#D4AF37', // Muted gold
+                            sage: '#8F9779'    // Soft sage green
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            background-color: #FDFBF7;
+            color: #2C3531;
+            overflow-x: hidden;
+        }
+
+        /* Initial state for scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        /* Active state added by Intersection Observer */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom bounce animation for hero arrow */
+        @keyframes subtle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .animate-subtle-bounce {
+            animation: subtle-bounce 2s infinite ease-in-out;
+        }
+
+        /* Ensure video stays pinned in background of hero */
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 53, 49, 0.4); /* Dark overlay for text readability */
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <header class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden video-container">
+        <!-- Placeholder Video: Plays inline (crucial for mobile iOS), muted, looped -->
+        <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover">
+            <!-- Using a reliable high-quality placeholder video -->
+            <source src="https://cdn.coverr.co/videos/coverr-walking-through-the-forest-2668/1080p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 flex flex-col items-center justify-center h-full w-full">
+            <p class="text-white/80 uppercase tracking-[0.3em] text-sm mb-6 font-sans">We are getting married</p>
+            <h1 class="font-serif text-6xl md:text-8xl text-white font-light mb-4 tracking-wide">Alex & Taylor</h1>
+            <p class="text-white/90 text-lg md:text-xl font-serif italic mt-4">November 12th, 2026</p>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-12 flex flex-col items-center text-white/70 animate-subtle-bounce">
+                <span class="text-xs tracking-widest uppercase mb-2">Scroll</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 max-w-3xl mx-auto text-center">
+        <div class="reveal">
+            <h2 class="font-serif text-4xl text-brand-dark mb-8">Join us to celebrate</h2>
+            <p class="font-sans text-brand-dark/80 leading-relaxed text-lg font-light">
+                Together with our families, we invite you to share in our joy and the beginning of our new life together. We cannot wait to celebrate this special day with our favorite people.
+            </p>
+            <div class="mt-12 h-px w-24 bg-brand-accent mx-auto opacity-50"></div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8">
+                
+                <!-- Ceremony Details -->
+                <div class="reveal flex flex-col items-center text-center p-8 rounded-2xl bg-brand-light shadow-sm border border-brand-dark/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-sage mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h3 class="font-serif text-3xl mb-2 text-brand-dark">The Ceremony</h3>
+                    <p class="font-sans font-bold text-brand-accent tracking-widest text-sm uppercase mb-4">4:00 PM</p>
+                    <p class="font-sans text-brand-dark/70 font-light mb-1">The Botanical Gardens</p>
+                    <p class="font-sans text-brand-dark/70 font-light text-sm">123 Floral Avenue</p>
+                    <p class="font-sans text-brand-dark/70 font-light text-sm">City, State 12345</p>
+                </div>
+
+                <!-- Reception Details -->
+                <div class="reveal flex flex-col items-center text-center p-8 rounded-2xl bg-brand-light shadow-sm border border-brand-dark/5" style="transition-delay: 200ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-sage mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+                    </svg>
+                    <h3 class="font-serif text-3xl mb-2 text-brand-dark">The Reception</h3>
+                    <p class="font-sans font-bold text-brand-accent tracking-widest text-sm uppercase mb-4">6:00 PM</p>
+                    <p class="font-sans text-brand-dark/70 font-light mb-1">The Grand Hall</p>
+                    <p class="font-sans text-brand-dark/70 font-light text-sm">456 Celebration Lane</p>
+                    <p class="font-sans text-brand-dark/70 font-light text-sm">City, State 12345</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-brand-light">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="font-serif text-4xl text-brand-dark mb-4">Getting There</h2>
+            <p class="font-sans text-brand-dark/70 font-light mb-12 max-w-xl mx-auto">We have arranged for transportation from the main hotels. If you are driving, complimentary valet parking will be available at the venue.</p>
+            
+            <!-- Map Container (Responsive) -->
+            <div class="w-full rounded-2xl overflow-hidden shadow-lg border border-black/5 h-[400px] md:h-[500px]">
+                <!-- Using a generic placeholder map focused on a beautiful location -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0634628287514!2d-122.4503766846819!3d37.8006326797547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586d510144681%3A0xe960db8a581aacf5!2sPalace%20of%20Fine%20Arts!5e0!3m2!1sen!2sus!4v1689280389146!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <!-- Open in Maps Button -->
+            <div class="mt-8">
+                <a href="https://goo.gl/maps/Q3aYqX" target="_blank" class="inline-block bg-brand-dark text-white px-8 py-3 rounded-full font-sans text-sm tracking-wider uppercase hover:bg-brand-sage transition-colors duration-300">
+                    Open in Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 bg-brand-dark text-center text-white">
+        <div class="reveal">
+            <h2 class="font-serif text-3xl italic mb-6">We hope to see you there</h2>
+            <p class="font-sans text-white/70 font-light mb-10 text-sm tracking-widest uppercase">Kindly RSVP by October 1st</p>
+            
+            <button onclick="alert('In a real app, this would open a beautiful form or link to your RSVP platform!')" class="inline-block border border-brand-accent text-brand-accent px-10 py-3 rounded-full font-sans text-sm tracking-widest uppercase hover:bg-brand-accent hover:text-white transition-all duration-300">
+                RSVP Now
+            </button>
+            
+            <div class="mt-20 text-white/40 text-xs font-sans">
+                &copy; 2026 Alex & Taylor
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup Intersection Observer for smooth scroll animations
+            const observerOptions = {
+                root: null, // use the viewport
+                rootMargin: '0px',
+                threshold: 0.15 // trigger when 15% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // If the element is in view
+                    if (entry.isIntersecting) {
+                        // Add the 'active' class to trigger CSS transition
+                        entry.target.classList.add('active');
+                        // Stop observing once animated so it doesn't repeat backwards
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Select all elements with the 'reveal' class and observe them
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
